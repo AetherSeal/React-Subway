@@ -1,13 +1,13 @@
 import React from "react";
-import Aux from "../../hoc/Aux";
+import Wrapper from "../../hoc/Wrapper";
 import Sandwich from "../../components/Sandwich/Sandwich";
 class SandwichBuilder extends React.Component {
   render() {
     return (
-      <Aux>
+      <Wrapper>
         <div>sandwich control panel</div>
         <Sandwich />
-      </Aux>
+      </Wrapper>
     );
   }
 }
