@@ -3,7 +3,8 @@ import Classes from "../SandwichIngredients/SandwichIngredients.css";
 import PropTypes from "prop-types";
 
 class SandwichIngredient extends React.Component {
-  propTypes = {
+  
+  static propTypes = {
     ingredient: PropTypes.string,
     type: PropTypes.string
   };
@@ -42,5 +43,6 @@ class SandwichIngredient extends React.Component {
 
     return ingredient;
   }
+  
 }
 export default SandwichIngredient;
