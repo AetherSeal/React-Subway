@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import Wrapper from "../../hoc/Wrapper";
 import Sandwich from "../../components/Sandwich/Sandwich";
 import BuildControls from "../../components/Sandwich/BuildControls/BuildControls";
+import Modal from "../../components/UI/Modal/Modal"
+import OrderSummary from "../../components/Sandwich/OrderSummary/OrderSummary"
 
 const INGREDIENT_PRICE = {
   salad: 1,
@@ -19,9 +21,19 @@ class SandwichBuilder extends React.Component {
       cheese: 0,
       meat: 0
     },
-    totalPrice: 0
+    totalPrice: 0,
+    purchasable: false
   };
 
+  updatePurchasable = (ingredients) => {
+    const sum = Object.keys(ingredients).map(ingKey => {
+      return ingredients[ingKey];
+    }).reduce((sum, el) => {
+      return sum + el;
+    }, 0);
+    this.setState({purchasable: sum > 0});
+
+  };
   addIngredientHandler = type => {
     const actualAmmount = this.state.ingredients[type];
     const newAmmount = actualAmmount + 1;
@@ -34,10 +46,8 @@ class SandwichBuilder extends React.Component {
     const actualPrice = this.state.totalPrice;
     const newPrice = actualPrice + priceAddition;
 
-    this.setState({
-      ingredients: updatedIngredients,
-      totalPrice: newPrice
-    });
+    this.setState({ingredients: updatedIngredients, totalPrice: newPrice});
+    this.updatePurchasable(updatedIngredients);
   };
   removeIngredientHandler = type => {
     const actualAmmount = this.state.ingredients[type];
@@ -54,10 +64,8 @@ class SandwichBuilder extends React.Component {
     const actualPrice = this.state.totalPrice;
     const newPrice = actualPrice - priceAddition;
 
-    this.setState({
-      ingredients: updatedIngredients,
-      totalPrice: newPrice
-    });
+    this.setState({ingredients: updatedIngredients, totalPrice: newPrice});
+    this.updatePurchasable(updatedIngredients);
   };
 
   types = Object.keys(this.state.ingredients);
@@ -75,18 +83,13 @@ class SandwichBuilder extends React.Component {
       disabledIngredients[key] = disabledIngredients[key] <= 0;
     }
 
-    return (
-      <Wrapper>
-        <BuildControls
-          ingredients={this.ingredients}
-          disabledIngredients={disabledIngredients}
-          addIngredient={this.addIngredientHandler}
-          removeIngredient={this.removeIngredientHandler}
-          price ={this.state.totalPrice}
-        />
-        <Sandwich ingredients={this.state.ingredients} />
-      </Wrapper>
-    );
+    return (<Wrapper>
+      <Modal>
+        <OrderSummary ingredients={this.state.ingredients}></OrderSummary>
+      </Modal>
+      <BuildControls ingredients={this.ingredients} disabledIngredients={disabledIngredients} addIngredient={this.addIngredientHandler} removeIngredient={this.removeIngredientHandler} price={this.state.totalPrice} purchasable={this.state.purchasable}/>
+      <Sandwich ingredients={this.state.ingredients}/>
+    </Wrapper>);
   }
 }
 export default SandwichBuilder;

@@ -2,7 +2,7 @@ import React from "react";
 import Wrapper from "../../hoc/Wrapper";
 import Classes from './Layout.css';
 
-const layout = props => {
+const Layout = props => {
   return (
     <Wrapper>
       <div>toolbar sidedrawer backdrop</div>
@@ -11,4 +11,4 @@ const layout = props => {
   );
 };
 
-export default layout;
+export default Layout;

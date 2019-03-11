@@ -18,7 +18,7 @@ const Sandwich = props => {
   return (
     <div className={Classes.Sandwich}>
       <SandwichIngredient type={"bread-top"} />
-      {ingredients.length ? ingredients : <p> empty </p>}
+      {ingredients.length ? ingredients : <p> Add some fresh ingredients! </p>}
       <SandwichIngredient type={"bread-bottom"} />
     </div>
   );

@@ -18,6 +18,7 @@ class SandwichIngredient extends React.Component {
           <div className={Classes.BreadTop}>
             <div className={Classes.Seeds1} />
             <div className={Classes.Seeds2} />
+            <div className={Classes.Seeds3} />
           </div>
         );
         break;

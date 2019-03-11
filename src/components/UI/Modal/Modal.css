@@ -1,0 +1,19 @@
+.modal {
+    position: relative;
+    background-color: white;
+    padding: 5em;
+    border-radius: 5px;
+    width: 400px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: #00000057 5px 5px;
+    text-align: center;
+}
+.mask{
+    position: fixed;
+    background-color: #0000009c;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
