@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Classes from "./BuildControls.css";
 import BuildControl from "./BuildControl/BuildControl";
-import Currency from "../../Currency/Currency";
+import Currency from "../../UI/Currency/Currency";
 
 const BuildControls = props => {
   const ingredients = props.ingredients.types.map(ingredient => {
@@ -20,6 +20,7 @@ const BuildControls = props => {
     <div className={Classes.orderWrapper}>
       <button className={Classes.orderNow}
         disabled={!props.purchasable}
+        onClick={()=>props.checkout()}
       >Order now!</button>
     </div>
   </div>);
@@ -31,7 +32,8 @@ BuildControls.propTypes = {
   removeIngredient: PropTypes.func,
   disabledIngredients: PropTypes.object,
   purchasable: PropTypes.bool,
-  price: PropTypes.number
+  price: PropTypes.number,
+  checkout:PropTypes.func
 };
 
 export default BuildControls;

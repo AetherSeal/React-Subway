@@ -17,13 +17,6 @@ const OrderSummary = (props)=>{
                 <ul>
                     {ingredients}
                 </ul>
-                <div>
-                    do you want to checkout ?
-                    <div>
-                        <button>Yes</button>
-                        <button>No</button>
-                    </div>
-                </div>
         </Wrapper>
     )
 }

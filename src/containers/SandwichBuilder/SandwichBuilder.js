@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import Wrapper from "../../hoc/Wrapper";
 import Sandwich from "../../components/Sandwich/Sandwich";
@@ -22,9 +21,17 @@ class SandwichBuilder extends React.Component {
       meat: 0
     },
     totalPrice: 0,
-    purchasable: false
+    purchasable: false,
+    purchasing: false,
   };
 
+  checkout = () =>{
+    this.setState({purchasing:true})
+  }
+  cancelCheckout  = () =>{
+    debugger
+    this.setState({purchasing:false})
+  }
   updatePurchasable = (ingredients) => {
     const sum = Object.keys(ingredients).map(ingKey => {
       return ingredients[ingKey];
@@ -84,10 +91,18 @@ class SandwichBuilder extends React.Component {
     }
 
     return (<Wrapper>
-      <Modal>
+      <Modal show={this.state.purchasing} close={this.cancelCheckout}>
         <OrderSummary ingredients={this.state.ingredients}></OrderSummary>
       </Modal>
-      <BuildControls ingredients={this.ingredients} disabledIngredients={disabledIngredients} addIngredient={this.addIngredientHandler} removeIngredient={this.removeIngredientHandler} price={this.state.totalPrice} purchasable={this.state.purchasable}/>
+      <BuildControls 
+        ingredients={this.ingredients} 
+        disabledIngredients={disabledIngredients} 
+        addIngredient={this.addIngredientHandler} 
+        removeIngredient={this.removeIngredientHandler} 
+        price={this.state.totalPrice} 
+        purchasable={this.state.purchasable}
+        checkout={this.checkout} >
+      </BuildControls>      
       <Sandwich ingredients={this.state.ingredients}/>
     </Wrapper>);
   }
