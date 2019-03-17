@@ -1,0 +1,21 @@
+.Hamburger{
+    width: 30px;
+    padding:calc(25px / 2) 0;
+}
+.Bar{
+    height: 5px;
+    background: black;
+    width: 30px;
+}
+
+.Line1{
+    transform: rotate(45deg) translateY(1px)translateX(13px);
+    margin-left: -8px;
+}
+.Line2{
+    background: transparent;
+}
+.Line3{
+    transform: rotate(-45deg) translateY(-1px)translateX(13px);
+    margin-left: -8px;
+}

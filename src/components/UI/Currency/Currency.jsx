@@ -8,7 +8,7 @@ const Currency = props =>{
 }
 
 Currency.propTypes = {
-    style: PropTypes.string.isRequired,
+    style: PropTypes.string,
     ammount: PropTypes.number.isRequired
 }
 

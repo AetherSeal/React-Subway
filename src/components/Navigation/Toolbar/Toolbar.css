@@ -1,0 +1,34 @@
+.Header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    background: white;
+    width: 100%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavBar {
+    height: 100%;
+}
+
+.DesktopOnly{
+    display:none
+}
+
+.LogoWrapper{
+    margin: 0 55px 0 0
+}
+
+@media (min-width:500px) {
+    .MobileOnly{
+        display:none
+    }
+    .DesktopOnly{
+        display:block
+    }
+    .LogoWrapper{
+        margin: 0 0 0 55px
+    }
+}

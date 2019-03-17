@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Classes from '../Backdrop/Backdrop.css'
 
 const Backdrop = props => {
+
    return( 
        props.show ? (
         <div className={Classes.backdrop}
@@ -13,7 +14,7 @@ const Backdrop = props => {
 }
 
 Backdrop.propTypes ={
-    show:PropTypes.boolean,
+    show: PropTypes.bool,
     close:PropTypes.func
 }
 export default Backdrop

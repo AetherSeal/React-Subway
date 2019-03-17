@@ -1,0 +1,14 @@
+.Logo{
+    background-color: transparent;
+    padding: 10px;
+    height: 100%;
+    position: relative;
+}
+
+.LogoImage{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(50%);  
+    height: 100%;
+}

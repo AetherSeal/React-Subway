@@ -1,6 +1,6 @@
 import React from "react";
 
-import Wrapper from "../../hoc/Wrapper";
+import Wrapper from '../../hoc/Wrapper/Wrapper';
 import Sandwich from "../../components/Sandwich/Sandwich";
 import BuildControls from "../../components/Sandwich/BuildControls/BuildControls";
 import Modal from "../../components/UI/Modal/Modal"
@@ -29,9 +29,12 @@ class SandwichBuilder extends React.Component {
     this.setState({purchasing:true})
   }
   cancelCheckout  = () =>{
-    debugger
     this.setState({purchasing:false})
   }
+  continueCheckout=()=>{
+    console.log('you continued !')
+  }
+
   updatePurchasable = (ingredients) => {
     const sum = Object.keys(ingredients).map(ingKey => {
       return ingredients[ingKey];
@@ -89,10 +92,13 @@ class SandwichBuilder extends React.Component {
     for (let key in disabledIngredients) {
       disabledIngredients[key] = disabledIngredients[key] <= 0;
     }
-
     return (<Wrapper>
-      <Modal show={this.state.purchasing} close={this.cancelCheckout}>
-        <OrderSummary ingredients={this.state.ingredients}></OrderSummary>
+      <Modal show={this.state.purchasing} close={this.cancelCheckout} >
+        <OrderSummary ingredients={this.state.ingredients}
+         cancelCheckout={this.cancelCheckout} 
+         continueCheckout={this.continueCheckout}
+         total={this.state.totalPrice}
+         ></OrderSummary>
       </Modal>
       <BuildControls 
         ingredients={this.ingredients} 

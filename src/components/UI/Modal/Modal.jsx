@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types'
 
 import Classes from "./Modal.css";
 import Backdrop from "../Backdrop/Backdrop";
-import Wrapper from "../../../hoc/Wrapper";
+import Wrapper from '../../../hoc/Wrapper/Wrapper';
 
 const Modal = props => {
   return (<Wrapper>
@@ -18,8 +18,8 @@ const Modal = props => {
 };
 
 Modal.propTypes={
-  show:PropTypes.bool,
-  close:PropTypes.func
+  show: PropTypes.bool,
+  close: PropTypes.func,
 }
 
 

@@ -1,0 +1,36 @@
+.SideDrawer {
+    position: fixed;
+    background: white;
+    height: 100vh;
+    display: flex;
+    width: 60vw;
+    max-width: 300px;
+    flex-direction: column;
+    z-index: 1;
+    /*margin-top: -50px;*/
+}
+
+.SideDrawer img {
+    position: absolute;
+    right: calc(50%);
+}
+
+.Logo {
+    height: 9vw;
+    position: relative;
+    margin-top: 50px;
+}
+
+.SideDrawer .Logo div {
+    padding: 0px;
+}
+
+.List {
+    margin: 3em 0 0 0;
+}
+
+@media(min-width:500px){
+    .SideDrawer{
+        display: none
+    }
+}

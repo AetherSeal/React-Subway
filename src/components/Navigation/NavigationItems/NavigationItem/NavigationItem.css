@@ -1,0 +1,25 @@
+
+    .Item {
+        display: block;
+        margin: 4vw 0 0 5vw;
+        align-items: center;
+        color: #009947;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+
+@media (min-width:500px) {
+    .Item {
+        display: inline-flex;
+        margin: 0 10px;
+        height: calc(100% - 4px);
+        color: black;
+        font-weight: normal;
+        font-size: 16px;
+    }
+    .Item:hover {
+        border-bottom: #f1b700 4px solid;
+        box-sizing: content-box;
+    }
+}
